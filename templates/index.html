@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Drive Clone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload a file to S3</h1>
+        <!-- Added id="uploadForm" to match your script.js -->
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+
+        <h2>Uploaded Files</h2>
+        <ul id="filesList">
+            {% for file in files %}
+            <li>
+                <a href="{{ file.url }}" target="_blank">{{ file.filename }}</a>
+                <button onclick="deleteFile({{ file.id }})">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

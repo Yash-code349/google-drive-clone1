@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Files</title>
+</head>
+<body>
+    <h1>List of Uploaded Files</h1>
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ file.url }}" target="_blank">{{ file.filename }}</a>
+            <button onclick="deleteFile({{ file.id }})">Delete</button>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function deleteFile(fileId) {
+            fetch(`/delete/${fileId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || data.error);
+                if (!data.error) {
+                    location.reload();  // Reload to refresh the file list
+                }
+            })
+            .catch(error => {
+                alert('Error deleting file');
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

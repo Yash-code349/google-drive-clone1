@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b3c8de;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container {
+    background: rgb(236, 231, 231);
+    padding: 20px 40px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="file"] {
+    margin: 15px 0;
+}
+
+button {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background: #1557b0;
+}
+
+ul#filesList {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul#filesList li {
+    margin-bottom: 10px;
+}
